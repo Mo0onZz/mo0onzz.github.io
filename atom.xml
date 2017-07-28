@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-07-28T14:53:48.717Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>postgresql</title>
+    <link href="http://yoursite.com/2017/07/28/postgresql/"/>
+    <id>http://yoursite.com/2017/07/28/postgresql/</id>
+    <published>2017-07-28T14:51:22.000Z</published>
+    <updated>2017-07-28T14:53:48.717Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装及连接"><a href="#安装及连接" class="headerlink" title="安装及连接"></a>安装及连接</h2><h3 id="docker安装postgresql"><a href="#docker安装postgresql" class="headerlink" title="docker安装postgresql"></a>docker安装postgresql</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">docker run --name postgresql -itd --restart always \</div><div class="line">  --publish 5432:5432 \</div><div class="line">  --volume /srv/docker/postgresql:/var/lib/postgresql \</div><div class="line">  sameersbn/postgresql:9.6-2</div></pre></td></tr></table></figure>
+<h3 id="连接postgresql"><a href="#连接postgresql" class="headerlink" title="连接postgresql"></a>连接postgresql</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it postgresql sudo -u postgres psql</div></pre></td></tr></table></figure>
+<h2 id="postgresql设置"><a href="#postgresql设置" class="headerlink" title="postgresql设置"></a>postgresql设置</h2><h3 id="1-使用-password命令，为postgres用户设置一个密码"><a href="#1-使用-password命令，为postgres用户设置一个密码" class="headerlink" title="1.使用\password命令，为postgres用户设置一个密码"></a>1.使用\password命令，为postgres用户设置一个密码</h3><!-- more -->
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\password postgres</div></pre></td></tr></table></figure>
+<h3 id="2-创建数据库用户dbuser，并设置密码。"><a href="#2-创建数据库用户dbuser，并设置密码。" class="headerlink" title="2.创建数据库用户dbuser，并设置密码。"></a>2.创建数据库用户dbuser，并设置密码。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CREATE USER dbuser WITH PASSWORD &apos;password&apos;;</div></pre></td></tr></table></figure>
+<h3 id="3-创建用户数据库，这里为exampledb，并指定所有者为dbuser。"><a href="#3-创建用户数据库，这里为exampledb，并指定所有者为dbuser。" class="headerlink" title="3.创建用户数据库，这里为exampledb，并指定所有者为dbuser。"></a>3.创建用户数据库，这里为exampledb，并指定所有者为dbuser。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE exampledb OWNER dbuser;</div></pre></td></tr></table></figure>
+<h3 id="4-将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有任何数据库操作权限。"><a href="#4-将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有任何数据库操作权限。" class="headerlink" title="4.将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有任何数据库操作权限。"></a>4.将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有任何数据库操作权限。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GRANT ALL PRIVILEGES ON DATABASE exampledb to dbuser;</div></pre></td></tr></table></figure>
+<h3 id="5-使用-q命令退出控制台（也可以直接按ctrl-D）。"><a href="#5-使用-q命令退出控制台（也可以直接按ctrl-D）。" class="headerlink" title="5.使用\q命令退出控制台（也可以直接按ctrl+D）。"></a>5.使用\q命令退出控制台（也可以直接按ctrl+D）。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\q</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;安装及连接&quot;&gt;&lt;a href=&quot;#安装及连接&quot; class=&quot;headerlink&quot; title=&quot;安装及连接&quot;&gt;&lt;/a&gt;安装及连接&lt;/h2&gt;&lt;h3 id=&quot;docker安装postgresql&quot;&gt;&lt;a href=&quot;#docker安装postgresql&quot; class=&quot;headerlink&quot; title=&quot;docker安装postgresql&quot;&gt;&lt;/a&gt;docker安装postgresql&lt;/h3&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/07/28/hello-world/"/>
+    <id>http://yoursite.com/2017/07/28/hello-world/</id>
+    <published>2017-07-28T14:28:10.881Z</published>
+    <updated>2017-07-28T14:28:10.881Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Docker学习笔记</title>
+    <link href="http://yoursite.com/2017/07/27/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/07/27/Docker学习笔记/</id>
+    <published>2017-07-26T16:00:00.000Z</published>
+    <updated>2017-07-27T15:20:29.897Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<h2 id="1-Docker安装"><a href="#1-Docker安装" class="headerlink" title="1.Docker安装"></a>1.Docker安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install curl</div><div class="line">curl -sSL https://get.docker.com/ | sh</div></pre></td></tr></table></figure>
+<h2 id="2-Docker容器时间设置"><a href="#2-Docker容器时间设置" class="headerlink" title="2.Docker容器时间设置"></a>2.Docker容器时间设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ -v /etc/localtime:/etc/localtime -v /etc/timezone:/etc/timezone</div></pre></td></tr></table></figure>
+<h2 id="3-jenkins-gradle"><a href="#3-jenkins-gradle" class="headerlink" title="3.jenkins-gradle"></a>3.jenkins-gradle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Dockerfile</div><div class="line"></div><div class="line">FROM jenkinsci/jenkins</div><div class="line"></div><div class="line">ENV SDKMAN_DIR /usr/share/sdkman/dir</div><div class="line"></div><div class="line">USER root</div><div class="line">ADD jenkins-gradle.sh /usr/local/bin/</div><div class="line">ENTRYPOINT [&quot;/bin/tini&quot;, &quot;--&quot;, &quot;jenkins-gradle.sh&quot;]</div><div class="line">RUN apt-get update &amp;&amp; apt-get install -y zip &amp;&amp; rm -rf /var/lib/apt/lists/* \</div><div class="line">&amp;&amp; mkdir -p &quot;$(dirname &quot;$SDKMAN_DIR&quot;)&quot; \</div><div class="line">&amp;&amp; chown -R jenkins: &quot;$(dirname &quot;$SDKMAN_DIR&quot;)&quot;</div><div class="line"></div><div class="line">USER jenkins</div><div class="line">SHELL [&quot;/bin/bash&quot;, &quot;-c&quot;]</div><div class="line">RUN curl -s &quot;https://get.sdkman.io&quot; | bash \</div><div class="line">&amp;&amp; source &quot;$SDKMAN_DIR/bin/sdkman-init.sh&quot; \</div><div class="line">&amp;&amp; sdk install gradle \</div><div class="line">&amp;&amp; /usr/local/bin/install-plugins.sh git gradle workflow-aggregator</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h2 id=&quot;1-Docker安装&quot;&gt;&lt;a href=&quot;#1-Docker安装&quot; class=&quot;headerlink&quot; title=&quot;1.Docker安装&quot;&gt;&lt;/a&gt;1.Docker安装&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tab
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+  </entry>
+  
+</feed>
